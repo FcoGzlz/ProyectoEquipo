@@ -29,8 +29,8 @@
                 </div>
                 <select class="custom-select" id="tipoDeCuenta">
                     <option selected>Escoga tipo de Cuenta</option>
-                    <option value="1">Usuario</option>
-                    <option value="2">Administrador</option>
+                    <option value="0">Usuario</option>
+                    <option value="1">Administrador</option>
                 </select>
             </div>
             
