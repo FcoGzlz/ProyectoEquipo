@@ -5,6 +5,8 @@
  */
 package cl.controller;
 
+import cl.entities.Usuario;
+import cl.model.ServicioLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.ejb.EJB;
