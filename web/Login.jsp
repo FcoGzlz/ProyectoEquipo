@@ -12,8 +12,29 @@
         <title>JSP Page</title>
     </head>
     <body>
-      
-        
-        
+        <form>
+            <div class="form-group">
+                <label for="rut">Rut</label>
+                <input type="text" class="form-control" id="rut" placeholder="Ingresa Rut">
+            </div>
+            
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" class="form-control" id="contrasena" placeholder="Contraseña">
+            </div>
+            
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="tipoDeCuenta">Cuenta</label>
+                </div>
+                <select class="custom-select" id="tipoDeCuenta">
+                    <option selected>Escoga tipo de Cuenta</option>
+                    <option value="0">Usuario</option>
+                    <option value="1">Administrador</option>
+                </select>
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
     </body>
 </html>
