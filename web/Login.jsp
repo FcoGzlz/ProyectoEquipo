@@ -12,8 +12,19 @@
         <title>JSP Page</title>
     </head>
     <body>
-      
-        
-        
+        <form>
+            <div class="form-group">
+                <label for="rut">Rut</label>
+                <input type="text" class="form-control" id="rut" placeholder="Ingresa Rut">
+            </div>
+            
+            <div class="form-group">
+                <label for="contrasena">Contraseña</label>
+                <input type="password" class="form-control" id="contrasena" placeholder="Contraseña">
+            </div>
+            
+            <button type="submit" class="btn btn-primary">Entrar</button>
+            
+        </form>
     </body>
 </html>
