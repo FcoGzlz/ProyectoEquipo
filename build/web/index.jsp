@@ -22,5 +22,7 @@
                 <a href="#" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
+        
+        <div>NO</div>
     </body>
 </html>
