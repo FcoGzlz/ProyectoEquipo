@@ -7,7 +7,6 @@ package cl.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,37 +15,29 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author 20278034-2
+ * @author 20317815-8
  */
-@WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
-public class LoginController extends HttpServlet {
-@EJB
-private ServicioLocal service;
-   
+@WebServlet(name = "EquipoController", urlPatterns = {"/EquipoController"})
+public class EquipoController extends HttpServlet {
 
+   
+    
+
+   
+   
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       request.getRequestDispatcher("Login.jsp").forward(request, response);
+        
     }
 
    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String rut = request.getParameter("rut");
-        String clave = request.getParameter("clave");
-        
-        Usuario login = service.login(rut,clave));
-        if (login != null) {
-            request.getSession().setAttribute("usuario", login);
-            response.sendRedirect("template.jsp");
-        }
-        else{
-            request.setAttribute("msg","Usuario no encontrado");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
-        }
+       
     }
 
-  
+    
+   
 }
