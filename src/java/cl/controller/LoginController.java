@@ -39,10 +39,16 @@ private ServicioLocal service;
         String rut = request.getParameter("rut");
         String clave = request.getParameter("clave");
         
-        Usuario login = service.login(rut,clave));
+        Usuario login = service.login(rut,clave);
         if (login != null) {
+            int estado = login.getEsadministrador();
+            if (estado == 1) {
+                 request.getSession().setAttribute("administrador", login);
+            response.sendRedirect("crudAdministrador.jsp");
+            } else {
+            }
             request.getSession().setAttribute("usuario", login);
-            response.sendRedirect("template.jsp");
+            response.sendRedirect("crudUsuario.jsp");
         }
         else{
             request.setAttribute("msg","Usuario no encontrado");
