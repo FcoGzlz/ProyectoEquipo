@@ -23,8 +23,18 @@
                 <input type="password" class="form-control" id="contrasena" placeholder="Contraseña">
             </div>
             
-            <button type="submit" class="btn btn-primary">Entrar</button>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <label class="input-group-text" for="tipoDeCuenta">Cuenta</label>
+                </div>
+                <select class="custom-select" id="tipoDeCuenta">
+                    <option selected>Escoga tipo de Cuenta</option>
+                    <option value="1">Usuario</option>
+                    <option value="2">Administrador</option>
+                </select>
+            </div>
             
+            <button type="submit" class="btn btn-primary">Entrar</button>
         </form>
     </body>
 </html>
