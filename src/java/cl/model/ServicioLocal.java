@@ -16,6 +16,6 @@ import javax.ejb.Local;
 public interface ServicioLocal {
     public void persist(Object o);
     public void merge(Object o);
-    Usuario login(String rut, String clave);
-    
+    Usuario login(String rut, String clave, int estado);
+    Usuario findUsuario(String rut);
 }

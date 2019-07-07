@@ -22,39 +22,41 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "LoginController", urlPatterns = {"/LoginController"})
 public class LoginController extends HttpServlet {
-@EJB
-private ServicioLocal service;
-   
+
+    @EJB
+    private ServicioLocal service;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       request.getRequestDispatcher("Login.jsp").forward(request, response);
+        request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
-   
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String rut = request.getParameter("rut");
         String clave = request.getParameter("clave");
-        
-        Usuario login = service.login(rut,clave);
-        if (login != null) {
-            int estado = login.getEsadministrador();
-            if (estado == 1) {
-                 request.getSession().setAttribute("administrador", login);
-            response.sendRedirect("crudAdministrador.jsp");
+        if (request.getParameter("estado").equals("null")) {
+            request.setAttribute("msg", "Por favor, ingrese un tipo de cuenta");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+        } else {
+            int tipoCuenta = Integer.parseInt(request.getParameter("estado"));
+            Usuario login = service.login(rut, clave, tipoCuenta);
+            if (login != null) {
+                if (tipoCuenta == 0) {
+                    request.getSession().setAttribute("usuario", login);
+                    request.getRequestDispatcher("crudUsuario.jsp").forward(request, response);
+                    System.out.println("ESTÁNDAR");
+                } else {
+                    System.out.println("ADMINITRADOR");
+                    request.getSession().setAttribute("administrador", login);
+                    response.sendRedirect("crudAdministrador.jsp");
+                }
             } else {
+                request.setAttribute("msg", "Usuario no encontrado");
+                request.getRequestDispatcher("login.jsp").forward(request, response);
             }
-            request.getSession().setAttribute("usuario", login);
-            response.sendRedirect("crudUsuario.jsp");
-        }
-        else{
-            request.setAttribute("msg","Usuario no encontrado");
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
         }
     }
-
-  
 }

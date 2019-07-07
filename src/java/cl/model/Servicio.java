@@ -10,11 +10,12 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-
 @Stateless
 public class Servicio implements ServicioLocal {
+
     @PersistenceContext(unitName = "ProyectoEquipoPU")
     private EntityManager em;
+
     @Override
     public void persist(Object o) {
         em.persist(o);
@@ -23,19 +24,32 @@ public class Servicio implements ServicioLocal {
     @Override
     public void merge(Object o) {
         em.merge(o);
+        em.flush();
     }
 
     @Override
-    public Usuario login(String rut, String clave) {
+    public Usuario login(String rut, String clave, int estado) {
         try {
-            em.createNamedQuery("Usuario.login", Usuario.class)
+            return em.createNamedQuery("Usuario.login", Usuario.class)
                     .setParameter("rut", rut)
                     .setParameter("clave", clave)
-                    .getResultList();
+                    .setParameter("esadministrador", estado)
+                    .getSingleResult();
+        } catch (Exception e) {
+
+        }
+        return null;
+    }
+
+    @Override
+    public Usuario findUsuario(String rut) {
+        try {
+            return em.createNamedQuery("Usuario.findByRut", Usuario.class)
+                    .setParameter("rut", rut)
+                    .getSingleResult();
         } catch (Exception e) {
         }
         return null;
     }
 
-    
 }

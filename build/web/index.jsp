@@ -13,7 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <a href="template.jsp">ejecutar</a>
+        <a href="LoginController">ejecutar</a>
                 <div class="card" style="width: 18rem;">
             <img src="..." class="card-img-top" alt="...">
             <div class="card-body">
