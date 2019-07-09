@@ -5,7 +5,9 @@
  */
 package cl.model;
 
+import cl.entities.Equipo;
 import cl.entities.Usuario;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -50,6 +52,11 @@ public class Servicio implements ServicioLocal {
         } catch (Exception e) {
         }
         return null;
+    }
+
+    @Override
+    public List<Equipo> getEquipos() {
+        return em.createNamedQuery("Equipo.findAll").getResultList();
     }
 
 }

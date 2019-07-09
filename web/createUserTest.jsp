@@ -18,7 +18,7 @@
             RUT <input type="text" name="rut">
             Nombre: <input type="text" name="nombre">
             Apellido <input type="text" name="apellido">
-            Clave <input type="password" name="clave">
+            
             
             <select name="tipoCuenta">
                 <option selected value = "null">Seleccione tipo de cuenta</option>
