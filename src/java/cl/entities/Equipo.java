@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -18,6 +19,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -60,7 +62,11 @@ public class Equipo implements Serializable {
     @JoinColumn(name = "ligaFK", referencedColumnName = "id")
     @ManyToOne
     private Liga ligaFK;
-
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "usuariofk")
+    private Usuario usuario;
+  
+    
     public Equipo() {
     }
 
@@ -123,6 +129,14 @@ public class Equipo implements Serializable {
 
     public void setLigaFK(Liga ligaFK) {
         this.ligaFK = ligaFK;
+    }
+
+    public Usuario getUsuariofk() {
+        return usuario;
+    }
+
+    public void setUsuariofk(Usuario usuariofk) {
+        this.usuario = usuariofk;
     }
 
     @Override
