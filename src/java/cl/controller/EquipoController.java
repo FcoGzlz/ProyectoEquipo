@@ -5,6 +5,8 @@
  */
 package cl.controller;
 
+import cl.entities.Equipo;
+import cl.entities.Usuario;
 import cl.model.ServicioLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -40,7 +42,37 @@ private ServicioLocal service;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+        String escudo = request.getParameter("escudo");
+        String nombre = request.getParameter("nombre");
+        String formacion = request.getParameter("formacion");
+        String liga = request.getParameter("liga");
+        String msg = "";
+        if (escudo.isEmpty()) {
+            msg +="Ingrese Escudo";
+        }
+        if (nombre.isEmpty()) {
+            msg +="Ingrese Nombre";
+        }
+        if (formacion.equals("null")) {
+            msg+="Seleccione Formación";
+        }
+        if (liga.equals("null")) {
+            msg+="Seleccione liga";
+        }
+        if (!msg.isEmpty()) {
+            request.setAttribute("msg", msg);
+            request.getRequestDispatcher("crearEquipo.jsp").forward(request, response);
+        } else {
+            Usuario u = service.findUsuario(request.getParameter("rut"));
+            Equipo e = new Equipo();
+            e.setEscudo(escudo);
+            e.setFormacion(formacion);
+            e.setPresupuesto(10000);
+            e.setUsuariofk(u);
+            service.persist(e);
+            
+            
+        }
     }
 
     

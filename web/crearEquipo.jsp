@@ -16,15 +16,15 @@
         <form action="EquipoController" method="POST">
            
             Escudo: <input type="text" name="escudo">
-            Nombre <input type="text" name="nombre">
-            Formacion <input type="text" name="nombre">
+            Nombre: <input type="text" name="nombre">
+            Formacion: <input type="text" name="formacion">
             Liga:<select name="liga">
                 <option value="null">Seleccione liga</option>
                 <c:forEach items="${requestScope.liga}" var="l">
                     <option value="${l.id}">${l.nombre}</option>
                 </c:forEach>
             </select>
-            <input type="hidden" value="${sessionScope.id}">
+            <input type="hidden" value="${sessionScope.usuario.rut}" name = "rut">
             
             <button type="submit">Crear</button>
             

@@ -2,6 +2,19 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/src/java/cl/controller/crearJugadorController.java</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/web/crudLigas.jsp</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/src/java/cl/entities/Jugador.java</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/src/java/cl/controller/crearUsuarioController.java</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/src/java/cl/entities/Usuario.java</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/src/java/cl/model/ServicioLocal.java</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/src/java/cl/model/Servicio.java</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/web/crearEquipo.jsp</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/web/crudJugadores.jsp</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/web/createUserTest.jsp</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/src/java/cl/controller/EquipoController.java</file>
+            <file>file:/C:/Users/19933746-7/Desktop/ProyectoEquipo/src/java/cl/controller/LoginController.java</file>
+        </group>
     </open-files>
 </project-private>

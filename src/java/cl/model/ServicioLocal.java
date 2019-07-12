@@ -25,4 +25,5 @@ public interface ServicioLocal {
     List<Equipo> getEquipos();
     List<Liga>getLigas();
     List<Jugador> getJugadores();
+    
 }
