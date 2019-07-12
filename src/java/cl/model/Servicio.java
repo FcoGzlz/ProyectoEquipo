@@ -63,7 +63,8 @@ public class Servicio implements ServicioLocal {
 
     @Override
     public List<Liga> getLigas() {
-        return em.createNamedQuery("Liga.findAll", Liga.class).getResultList();
+        return em.createNamedQuery("Liga.findAll").getResultList();
+        //return em.createQuery("SELECT l FROM Liga l").getResultList();
     }
 
     @Override

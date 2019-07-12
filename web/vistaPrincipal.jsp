@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>       
-        <a href="crearEquipo.jsp">crear Equipo</a>
+        <a href="CrearEquipoController">crear Equipo</a>
         <table>
                         <thead>
                             <tr>                                                             

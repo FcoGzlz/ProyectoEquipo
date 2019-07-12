@@ -13,11 +13,18 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <form action="EquipoController" method="POST">
+        <form action="CrearEquipoController" method="POST">
            
             Escudo: <input type="text" name="escudo">
             Nombre: <input type="text" name="nombre">
-            Formacion: <input type="text" name="formacion">
+            Formacion:<select name="formacion">
+                <option value="null">Seleccione Formación</option>
+                <option value="4-4-2">4-4-2</option>
+                <option value="4-3-1-2">4-3-1-2</option>
+                <option value="4-3-3">4-3-3</option>
+                <option value="4-2-3-1">4-2-3-1</option>
+                <option value="3-5-2">3-5-2</option>
+            </select>
             Liga:<select name="liga">
                 <option value="null">Seleccione liga</option>
                 <c:forEach items="${requestScope.liga}" var="l">

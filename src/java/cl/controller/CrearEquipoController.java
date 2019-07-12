@@ -19,62 +19,58 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author 20317815-8
+ * @author Francisco
  */
-@WebServlet(name = "EquipoController", urlPatterns = {"/EquipoController"})
-public class EquipoController extends HttpServlet {
-@EJB
-private ServicioLocal service;
-   
-    
-
-   
-   
+@WebServlet(name = "CrearEquipoController", urlPatterns = {"/CrearEquipoController"})
+public class CrearEquipoController extends HttpServlet {
+    @EJB
+    private ServicioLocal service;
+ 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("liga", service.getLigas());
-        request.setAttribute("equipo",service.getEquipos() );
-        request.getRequestDispatcher("vistaPrincipal.jsp").forward(request, response);
+        request.getRequestDispatcher("crearEquipo.jsp").forward(request, response);
     }
 
-   
+  
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String escudo = request.getParameter("escudo");
-        String nombre = request.getParameter("nombre");
-        String formacion = request.getParameter("formacion");
-        String liga = request.getParameter("liga");
-        String msg = "";
-        if (escudo.isEmpty()) {
-            msg +="Ingrese Escudo";
-        }
+      String nombre = request.getParameter("nombre");
+      String escudo = request.getParameter("escudo");
+      String formacion = request.getParameter("formacion");
+      String liga = request.getParameter("liga");
+      String msg = "";
+      
         if (nombre.isEmpty()) {
-            msg +="Ingrese Nombre";
+            msg+="Ingrese nombre";
         }
-        if (formacion.equals("null")) {
-            msg+="Seleccione Formación";
+        if (escudo.isEmpty()) {
+            msg+="Ingrese escudo";
+        }
+        if (formacion.isEmpty()) {
+            msg+="Ingrese formación";
         }
         if (liga.equals("null")) {
             msg+="Seleccione liga";
         }
         if (!msg.isEmpty()) {
             request.setAttribute("msg", msg);
-            request.getRequestDispatcher("crearEquipo.jsp").forward(request, response);
+            request.getRequestDispatcher("crearEquipi.jsp").forward(request, response);
         } else {
             Usuario u = service.findUsuario(request.getParameter("rut"));
+            
             Equipo e = new Equipo();
+            e.setPresupuesto(10000);
             e.setEscudo(escudo);
             e.setFormacion(formacion);
-            e.setPresupuesto(10000);
             e.setUsuariofk(u);
+            e.setNombre(nombre);
             service.persist(e);
-            
-            
         }
     }
 
-    
    
+
 }
