@@ -6,6 +6,7 @@
 package cl.model;
 
 import cl.entities.Equipo;
+import cl.entities.Liga;
 import cl.entities.Usuario;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -57,6 +58,11 @@ public class Servicio implements ServicioLocal {
     @Override
     public List<Equipo> getEquipos() {
         return em.createNamedQuery("Equipo.findAll").getResultList();
+    }
+
+    @Override
+    public List<Liga> getLigas() {
+        return em.createNamedQuery("Liga.findAll").getResultList();
     }
 
 }
