@@ -3,7 +3,7 @@
     Created on : 04-07-2019, 21:55:14
     Author     : 20278034-2
 --%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +12,22 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        
+        
+         <table>
+                        <thead>
+                            <tr>                                                             
+                                <th>Nombre</th>                                                                                                                         
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <c:forEach items="${requestScope.liga}" var= "l">
+                                <tr>
+                                  <td>${l.nombre}</td>  
+                                </tr>
+                                </c:forEach>
+                        </tbody>
+                    </table>
     </body>
 </html>

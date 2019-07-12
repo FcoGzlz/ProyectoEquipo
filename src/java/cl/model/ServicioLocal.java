@@ -6,6 +6,7 @@
 package cl.model;
 
 import cl.entities.Equipo;
+import cl.entities.Liga;
 import cl.entities.Usuario;
 import java.util.List;
 import javax.ejb.Local;
@@ -21,4 +22,5 @@ public interface ServicioLocal {
     Usuario login(String rut, String clave, int estado);
     Usuario findUsuario(String rut);
     List<Equipo> getEquipos();
+    List<Liga>getLigas();
 }
