@@ -14,11 +14,24 @@
     </head>
     <body>
         <h1>Test Crud jugadores</h1>
-        <form action="crearJugadorController" method="POST">
+        <form action="crearJugadorController" method="POST" enctype="multipart/form-data">
             Nombre: <input type="text" name="nombre">
             Posición: <input type="text" name="position">
             Foto : <input type="file" name="foto">
             <button type ="submit">Agregar</button>
         </form>
+        <table>
+            <tr>
+                <th>Nombre</th>
+                <th>Posción</th>
+            </tr>
+            <tr>
+                <c:forEach items="${requesScope.jugadores}" var="j">
+                    <td>${j.nombre}</td>
+                    <td>${j.posicion}</td>
+                </c:forEach>
+            </tr>
+        </table>
+        ${requestScope.msg}
     </body>
 </html>

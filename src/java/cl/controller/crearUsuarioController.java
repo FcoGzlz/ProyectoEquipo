@@ -71,7 +71,7 @@ public class crearUsuarioController extends HttpServlet {
                 u.setRut(rut);
                 u.setNombre(nombre);
                 u.setApellido(apellido);
-                u.setClave("123");
+                u.setClave(Hash.md5(Hash.sha1("123")));
                 u.setEsadministrador(tipoCuentaInt);
                 service.persist(u);
             }

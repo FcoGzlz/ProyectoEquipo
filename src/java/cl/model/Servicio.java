@@ -6,6 +6,7 @@
 package cl.model;
 
 import cl.entities.Equipo;
+import cl.entities.Jugador;
 import cl.entities.Liga;
 import cl.entities.Usuario;
 import java.util.List;
@@ -63,6 +64,11 @@ public class Servicio implements ServicioLocal {
     @Override
     public List<Liga> getLigas() {
         return em.createNamedQuery("Liga.findAll").getResultList();
+    }
+
+    @Override
+    public List<Jugador> getJugadores() {
+        return em.createNamedQuery("Jugador.findAll", Jugador.class).getResultList();
     }
 
 }

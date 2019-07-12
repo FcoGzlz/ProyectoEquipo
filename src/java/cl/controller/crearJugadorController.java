@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -30,31 +31,34 @@ import javax.servlet.http.Part;
  * @author 19933746-7
  */
 @WebServlet(name = "crearJugadorController", urlPatterns = {"/crearJugadorController"})
+@MultipartConfig
 public class crearJugadorController extends HttpServlet {
+    
     @EJB
     private ServicioLocal service;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        request.setAttribute("jugadores", service.getJugadores());
         request.getRequestDispatcher("crudJugadores.jsp").forward(request, response);
+        
     }
 
- 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String nombre = request.getParameter("nombre");
         String posicion = request.getParameter("position");
-        String msg ="";
-        
+        String msg = "";
+
         if (nombre.isEmpty()) {
             msg += "ingrese nombre";
         }
         if (posicion.isEmpty()) {
             msg += "Ingrese posición";
         }
-        
+
         //Captura de Foto
         String foto = "foto";
         Part part1 = request.getPart("foto");
@@ -86,7 +90,7 @@ public class crearJugadorController extends HttpServlet {
         }
 
         if (msg.isEmpty()) {
-             System.out.println("ENTRO AL ACTUALIZAR");
+            System.out.println("ENTRO AL ACTUALIZAR");
             String file_photo = foto + "_" + fecha + format;
             try {
                 out = new FileOutputStream(new File(savePath.replace("\\build", "")
@@ -108,12 +112,7 @@ public class crearJugadorController extends HttpServlet {
                     filecontent.close();
                 }
             }
-        }
-        
-        if (!msg.isEmpty()) {
-            request.setAttribute("msg", msg);
-            request.getRequestDispatcher("crudJugadores.jsp").forward(request, response);
-        } else {
+
             Jugador j = new Jugador();
             j.setEstado(1);
             j.setValor(100);
@@ -121,10 +120,12 @@ public class crearJugadorController extends HttpServlet {
             j.setPosicion(posicion);
             j.setPathphoto(foto);
             service.persist(j);
-            
+        } else {
+            request.setAttribute("msg", msg);
+            request.getRequestDispatcher("crudJugadores.jsp").forward(request, response);
         }
+
     }
-
-    
-
 }
+
+

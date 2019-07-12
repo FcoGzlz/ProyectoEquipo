@@ -56,7 +56,7 @@ public class Usuario implements Serializable {
     @Size(max = 20)
     @Column(name = "apellido")
     private String apellido;
-    @Size(max = 20)
+    @Size(max = 100)
     @Column(name = "clave")
     private String clave;
     @Column(name = "esadministrador")

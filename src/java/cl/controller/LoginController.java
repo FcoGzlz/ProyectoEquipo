@@ -42,7 +42,7 @@ public class LoginController extends HttpServlet {
             request.getRequestDispatcher("login.jsp").forward(request, response);
         } else {
             int tipoCuenta = Integer.parseInt(request.getParameter("estado"));
-            Usuario login = service.login(rut, clave, tipoCuenta);
+            Usuario login = service.login(rut, (Hash.md5(Hash.sha1(clave))), tipoCuenta);
             if (login != null) {
                 if (tipoCuenta == 0) {
                     request.getSession().setAttribute("usuario", login);

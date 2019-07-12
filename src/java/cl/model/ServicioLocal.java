@@ -6,6 +6,7 @@
 package cl.model;
 
 import cl.entities.Equipo;
+import cl.entities.Jugador;
 import cl.entities.Liga;
 import cl.entities.Usuario;
 import java.util.List;
@@ -23,4 +24,5 @@ public interface ServicioLocal {
     Usuario findUsuario(String rut);
     List<Equipo> getEquipos();
     List<Liga>getLigas();
+    List<Jugador> getJugadores();
 }
