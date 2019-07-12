@@ -12,7 +12,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+        <form action ="LigasController" method="POST">
+            
+            Nombre: <input type="text" name="nombre">
+         
+            <button type="submit">Crear</button>
+        </form>
+        ${requestScope.msg}
         
          <table>
                         <thead>
