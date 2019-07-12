@@ -47,9 +47,9 @@ public class LoginController extends HttpServlet {
                 if (tipoCuenta == 0) {
                     request.getSession().setAttribute("usuario", login);
                     request.getRequestDispatcher("crudUsuario.jsp").forward(request, response);
-                    System.out.println("ESTÁNDAR");
+                    
                 } else {
-                    System.out.println("ADMINITRADOR");
+                    
                     request.getSession().setAttribute("administrador", login);
                     response.sendRedirect("crudAdministrador.jsp");
                 }

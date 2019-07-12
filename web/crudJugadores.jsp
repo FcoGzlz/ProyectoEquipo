@@ -17,13 +17,8 @@
         <form action="crearJugadorController" method="POST">
             Nombre: <input type="text" name="nombre">
             Posición: <input type="text" name="position">
-            Equipo:
-            <select name="equipo">
-                <option selected value="null">Seleccione Equipo</option>
-                <c:forEach items="${requestScope.equipos}" var="e">
-                    <option value="${e.id}">${e.nombre}</option>
-                </c:forEach>
-            </select>
+            Foto : <input type="file" name="foto">
+            <button type ="submit">Agregar</button>
         </form>
     </body>
 </html>
