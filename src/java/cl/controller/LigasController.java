@@ -37,6 +37,19 @@ private ServicioLocal service;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String nombre = request.getParameter("nombre");
+        String msg = "";
+        
+        if(nombre.isEmpty()){
+            msg += "Ingrese nombre de la liga";
+             request.getRequestDispatcher("crudLigas.jsp").forward(request, response);
+        }
+        else{
+               msg +="Liga creada ";
+                request.getRequestDispatcher("crudLigas.jsp").forward(request, response);
+        }
+        
+       
         
     }
 }
