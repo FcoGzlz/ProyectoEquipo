@@ -10,6 +10,7 @@ import cl.entities.Jugador;
 import cl.entities.Liga;
 import cl.entities.Usuario;
 import java.util.List;
+import javax.ejb.Remove;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -69,8 +70,31 @@ public class Servicio implements ServicioLocal {
 
     @Override
     public List<Jugador> getJugadores() {
-        return em.createNamedQuery("Jugador.findAll", Jugador.class).getResultList();
+        return em.createNamedQuery("Jugador.findAll").getResultList();
     }
+
+    @Override
+    @Remove
+    public void remove(Object o) {
+        em.remove(em.merge(o));
+        em.flush();
+    }
+
+    @Override
+    public List<Usuario> getUsuarios() {
+        
+        try {
+            return em.createNamedQuery("Usuario.findAll").getResultList();
+        } catch (Exception e) {
+        }
+        return null;
+    }
+
+    @Override
+    public Usuario findUsuarioId(int id) {
+        return em.createNamedQuery("Usuario.findById", Usuario.class).setParameter("id", id).getSingleResult();
+    }
+    
 
 
 }

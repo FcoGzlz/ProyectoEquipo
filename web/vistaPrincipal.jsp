@@ -26,7 +26,7 @@
                         </thead>
 
                         <tbody>
-                            <c:forEach items="${requestScope.equipo}" var= "e">
+                            <c:forEach items="${requestScope.equipos}" var= "e">
                                 <tr>
                                   <td>${e.nombre}</td>  
                                   <td>${e.nombre}</td>  

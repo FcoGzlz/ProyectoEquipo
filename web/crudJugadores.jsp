@@ -24,13 +24,17 @@
             <tr>
                 <th>Nombre</th>
                 <th>Posción</th>
+                <th>Foto</th>
             </tr>
-            <tr>
-                <c:forEach items="${requesScope.jugadores}" var="j">
+            
+                <c:forEach items="${requestScope.jugadores}" var="j">
+                    <tr>
                     <td>${j.nombre}</td>
                     <td>${j.posicion}</td>
+                    <td><img height="100"src="img/${j.pathphoto}"/></td>
+                    </tr>
                 </c:forEach>
-            </tr>
+            
         </table>
         ${requestScope.msg}
     </body>

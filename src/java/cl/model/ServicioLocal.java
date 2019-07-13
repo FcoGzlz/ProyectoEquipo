@@ -22,8 +22,11 @@ public interface ServicioLocal {
     public void merge(Object o);
     Usuario login(String rut, String clave, int estado);
     Usuario findUsuario(String rut);
+    Usuario findUsuarioId(int id);
+    List<Usuario> getUsuarios();
     List<Equipo> getEquipos();
     List<Liga>getLigas();
     List<Jugador> getJugadores();
+    public void remove(Object o);
     
 }

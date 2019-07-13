@@ -52,7 +52,7 @@ public class Jugador implements Serializable {
     private Integer valor;
     @Column(name = "estado")
     private Integer estado;
-    @Size(max = 20)
+    @Size(max = 50)
     @Column(name = "pathphoto")
     private String pathphoto;
     @JoinColumn(name = "equipoFK", referencedColumnName = "id")

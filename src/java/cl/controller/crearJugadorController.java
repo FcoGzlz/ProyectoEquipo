@@ -90,7 +90,6 @@ public class crearJugadorController extends HttpServlet {
         }
 
         if (msg.isEmpty()) {
-            System.out.println("ENTRO AL ACTUALIZAR");
             String file_photo = foto + "_" + fecha + format;
             try {
                 out = new FileOutputStream(new File(savePath.replace("\\build", "")
@@ -118,8 +117,9 @@ public class crearJugadorController extends HttpServlet {
             j.setValor(100);
             j.setNombre(nombre);
             j.setPosicion(posicion);
-            j.setPathphoto(foto);
+            j.setPathphoto(file_photo);
             service.persist(j);
+            doGet(request,response);
         } else {
             request.setAttribute("msg", msg);
             request.getRequestDispatcher("crudJugadores.jsp").forward(request, response);

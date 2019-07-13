@@ -70,7 +70,25 @@ public class CrearEquipoController extends HttpServlet {
             service.persist(e);
         }
     }
-
-   
+    
+    protected void actualizar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    
+    }
+    
+    protected void crear(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    
+    }
+    
+    protected void leer(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    
+    }
+    
+    protected void eliminar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    
+    }
 
 }
