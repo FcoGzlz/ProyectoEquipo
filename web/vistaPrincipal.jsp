@@ -21,19 +21,24 @@
                                 <th>formacion</th>                                                                                                                         
                                 <th>Presupuesto</th>                                                                                                                         
                                 <th>Jugador</th>                                                                                                                         
-                                <th>Liga</th>                                                                                                                         
+                                <th>Liga</th>
+                                <th>Opciones</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <c:forEach items="${requestScope.equipos}" var= "e">
                                 <tr>
+                                  <td>${e.escudo}</td>  
                                   <td>${e.nombre}</td>  
-                                  <td>${e.nombre}</td>  
-                                  <td>${e.nombre}</td>  
-                                  <td>${e.nombre}</td>  
-                                  <td>${e.nombre}</td>  
-                                  <td>${e.nombre}</td>  
+                                  <td>${e.formacion}</td>  
+                                  <td>${e.presupuesto}</td>  
+                                  <td>${e.usuario}</td>  
+                                  <td>${e.ligaFK}</td> 
+                                  <td>
+                                      <button value="leer" name="boton">Actualizar Equipo</button>
+                                      <button value="eliminar" name="boton">Eliminar</button>
+                                  </td>
                                 </tr>
                                 </c:forEach>
                         </tbody>

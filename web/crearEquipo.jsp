@@ -33,7 +33,7 @@
             </select>
             <input type="hidden" value="${sessionScope.usuario.rut}" name = "rut">
             
-            <button type="submit">Crear</button>
+            <button type="submit" value="crear" >Crear Equipo</button>
             
         </form>
     </body>

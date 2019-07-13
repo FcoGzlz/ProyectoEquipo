@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Francisco/Desktop/PROYECTO%20EQUIPO/ProyectoEquipo/web/crearEquipo.jsp</file>
-            <file>file:/C:/Users/Francisco/Desktop/PROYECTO%20EQUIPO/ProyectoEquipo/web/vistaPrincipal.jsp</file>
-            <file>file:/C:/Users/Francisco/Desktop/PROYECTO%20EQUIPO/ProyectoEquipo/src/java/cl/controller/crearUsuarioController.java</file>
-            <file>file:/C:/Users/Francisco/Desktop/PROYECTO%20EQUIPO/ProyectoEquipo/web/verUsuario.jsp</file>
-            <file>file:/C:/Users/Francisco/Desktop/PROYECTO%20EQUIPO/ProyectoEquipo/web/createUserTest.jsp</file>
-            <file>file:/C:/Users/Francisco/Desktop/PROYECTO%20EQUIPO/ProyectoEquipo/src/java/cl/model/ServicioLocal.java</file>
-            <file>file:/C:/Users/Francisco/Desktop/PROYECTO%20EQUIPO/ProyectoEquipo/src/java/cl/entities/Usuario.java</file>
-            <file>file:/C:/Users/Francisco/Desktop/PROYECTO%20EQUIPO/ProyectoEquipo/src/java/cl/entities/Equipo.java</file>
-            <file>file:/C:/Users/Francisco/Desktop/PROYECTO%20EQUIPO/ProyectoEquipo/src/java/cl/model/Servicio.java</file>
+            <file>file:/C:/Users/felipe/Documents/NetBeansProjects/ProyectoEquipo/src/java/cl/controller/crearUsuarioController.java</file>
+            <file>file:/C:/Users/felipe/Documents/NetBeansProjects/ProyectoEquipo/src/java/cl/controller/CrearEquipoController.java</file>
+            <file>file:/C:/Users/felipe/Documents/NetBeansProjects/ProyectoEquipo/web/vistaPrincipal.jsp</file>
         </group>
     </open-files>
 </project-private>

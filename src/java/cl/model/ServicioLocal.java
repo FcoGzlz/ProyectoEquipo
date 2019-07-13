@@ -23,6 +23,7 @@ public interface ServicioLocal {
     Usuario login(String rut, String clave, int estado);
     Usuario findUsuario(String rut);
     Usuario findUsuarioId(int id);
+    Equipo findEquipo(int id);
     List<Usuario> getUsuarios();
     List<Equipo> getEquipos();
     List<Liga>getLigas();

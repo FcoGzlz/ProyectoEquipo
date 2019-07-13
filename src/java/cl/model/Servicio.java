@@ -94,6 +94,11 @@ public class Servicio implements ServicioLocal {
     public Usuario findUsuarioId(int id) {
         return em.createNamedQuery("Usuario.findById", Usuario.class).setParameter("id", id).getSingleResult();
     }
+
+    @Override
+    public Equipo findEquipo(int id) {
+         return em.createNamedQuery("Equipo.findById", Equipo.class).setParameter("id", id).getSingleResult();
+    }
     
 
 
