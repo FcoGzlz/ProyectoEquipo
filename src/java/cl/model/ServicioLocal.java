@@ -24,6 +24,7 @@ public interface ServicioLocal {
     Usuario findUsuario(String rut);
     Usuario findUsuarioId(int id);
     Equipo findEquipo(int id);
+    Liga findLiga(int id);
     List<Usuario> getUsuarios();
     List<Equipo> getEquipos();
     List<Liga>getLigas();

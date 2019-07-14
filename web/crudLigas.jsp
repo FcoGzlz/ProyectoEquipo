@@ -23,14 +23,19 @@
          <table>
                         <thead>
                             <tr>                                                             
-                                <th>Nombre</th>                                                                                                                         
+                                <th>Nombre</th>
+                                <th></th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <c:forEach items="${requestScope.liga}" var= "l">
                                 <tr>
-                                  <td>${l.nombre}</td>  
+                                  <td>${l.nombre}</td>
+                                  <td>
+                                      <button value="leer" name="boton">Ver</button>
+                                      <button value="eliminar" name="boton">Eliminar</button>
+                                  </td>
                                 </tr>
                                 </c:forEach>
                         </tbody>

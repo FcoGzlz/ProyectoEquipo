@@ -5,6 +5,7 @@
  */
 package cl.controller;
 
+import cl.entities.Liga;
 import cl.model.ServicioLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -37,6 +38,45 @@ private ServicioLocal service;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String boton = request.getParameter("boton");
+      
+        switch (boton) {
+            case "crear":
+                crear(request, response);
+                break;
+            
+            case "actualizar":
+                actualizar(request, response);
+                break;
+                        
+            default:
+                otros(request, response);
+        }
+            
+    }
+    
+    protected void crear(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+    String nombre = request.getParameter("nombre");
+        String msg = "";
+        
+        if(nombre.isEmpty()){
+            msg += "Ingrese nombre de la liga";
+             request.getRequestDispatcher("crudLigas.jsp").forward(request, response);
+        }
+        else{
+            Liga l = new Liga();
+            l.setNombre(nombre);
+            service.persist(l);
+               msg +="Liga creada ";
+                request.getRequestDispatcher("crudLigas.jsp").forward(request, response);
+        }
+        
+    }
+    
+    protected void actualizar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        int id = Integer.parseInt(request.getParameter("id"));
         String nombre = request.getParameter("nombre");
         String msg = "";
         
@@ -45,11 +85,39 @@ private ServicioLocal service;
              request.getRequestDispatcher("crudLigas.jsp").forward(request, response);
         }
         else{
-               msg +="Liga creada ";
-                request.getRequestDispatcher("crudLigas.jsp").forward(request, response);
+            Liga l = service.findLiga(id);
+            l.setNombre(nombre);
+            service.merge(l);
+            doGet(request, response);
         }
-        
-       
-        
+    
+    }
+    protected void otros(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+          String boton = request.getParameter("boton");
+        String cadenaSeparada[] = boton.split("-");
+        String peticion = cadenaSeparada[0];
+        int id = Integer.parseInt(cadenaSeparada[1]);
+        switch (peticion) {
+            case "eliminar":
+                eliminar(request, response, id);
+                break;
+            case "leer":
+                leer(request, response, id);
+                break;
+    
+    }
+    }
+    protected void leer(HttpServletRequest request, HttpServletResponse response,int id)
+            throws ServletException, IOException {
+        request.getRequestDispatcher("verLiga.jsp").forward(request, response);
+    
+    }
+    
+    protected void eliminar(HttpServletRequest request, HttpServletResponse response, int id)
+            throws ServletException, IOException {
+           Liga liga = service.findLiga(id) ;
+           service.remove(liga);
+           doGet(request, response);
     }
 }

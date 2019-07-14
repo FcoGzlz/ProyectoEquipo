@@ -96,7 +96,7 @@ public class CrearEquipoController extends HttpServlet {
         String cadenaSeparada[] = boton.split("-");
         String peticion = cadenaSeparada[0];
         int id = Integer.parseInt(cadenaSeparada[1]);
-        switch (boton) {
+        switch (peticion) {
             case "eliminar":
                 eliminar(request, response, id);
                 break;
@@ -110,12 +110,44 @@ public class CrearEquipoController extends HttpServlet {
     }
     protected void leer(HttpServletRequest request, HttpServletResponse response,int id)
             throws ServletException, IOException {
-        
+        request.getRequestDispatcher("verEquipo.jsp").forward(request, response);
     
     }
     protected void actualizar(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    
+        int id = Integer.parseInt(request.getParameter("id"));
+     String nombre = request.getParameter("nombre");
+        String escudo = request.getParameter("escudo");
+        String formacion = request.getParameter("formacion");
+        String liga = request.getParameter("liga");
+        String msg = "";
+
+        if (nombre.isEmpty()) {
+            msg += "Ingrese nombre";
+        }
+        if (escudo.isEmpty()) {
+            msg += "Ingrese escudo";
+        }
+        if (formacion.isEmpty()) {
+            msg += "Ingrese formación";
+        }
+        if (liga.equals("null")) {
+            msg += "Seleccione liga";
+        }
+        if (!msg.isEmpty()) {
+            request.setAttribute("msg", msg);
+            request.getRequestDispatcher("crearEquipo.jsp").forward(request, response);
+        } else {
+            Usuario u = service.findUsuario(request.getParameter("rut"));
+             Equipo e = service.findEquipo(id);
+            e.setPresupuesto(10000);
+            e.setEscudo(escudo);
+            e.setFormacion(formacion);
+            e.setUsuariofk(u);
+            e.setNombre(nombre);
+            service.merge(e);
+            doGet(request, response);
+        }
     }
     
     protected void eliminar(HttpServletRequest request, HttpServletResponse response, int id)

@@ -99,6 +99,12 @@ public class Servicio implements ServicioLocal {
     public Equipo findEquipo(int id) {
          return em.createNamedQuery("Equipo.findById", Equipo.class).setParameter("id", id).getSingleResult();
     }
+
+    @Override
+    public Liga findLiga(int id) {
+        return em.createNamedQuery("Liga.findById", Liga.class).setParameter("id", id).getSingleResult();   
+    
+    }
     
 
 
