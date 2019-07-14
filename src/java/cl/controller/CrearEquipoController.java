@@ -110,6 +110,8 @@ public class CrearEquipoController extends HttpServlet {
     }
     protected void leer(HttpServletRequest request, HttpServletResponse response,int id)
             throws ServletException, IOException {
+        Equipo e  = service.findEquipo(id);
+        request.setAttribute("producto", e);
         request.getRequestDispatcher("verEquipo.jsp").forward(request, response);
     
     }

@@ -110,6 +110,8 @@ private ServicioLocal service;
     }
     protected void leer(HttpServletRequest request, HttpServletResponse response,int id)
             throws ServletException, IOException {
+        Liga l  = service.findLiga(id);
+        request.setAttribute("producto", l);
         request.getRequestDispatcher("verLiga.jsp").forward(request, response);
     
     }
