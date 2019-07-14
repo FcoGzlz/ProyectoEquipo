@@ -136,7 +136,7 @@ public class CrearEquipoController extends HttpServlet {
         }
         if (!msg.isEmpty()) {
             request.setAttribute("msg", msg);
-            request.getRequestDispatcher("crearEquipo.jsp").forward(request, response);
+            request.getRequestDispatcher("verEquipo.jsp").forward(request, response);
         } else {
             Usuario u = service.findUsuario(request.getParameter("rut"));
              Equipo e = service.findEquipo(id);

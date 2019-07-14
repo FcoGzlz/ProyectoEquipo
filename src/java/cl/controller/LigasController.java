@@ -82,7 +82,7 @@ private ServicioLocal service;
         
         if(nombre.isEmpty()){
             msg += "Ingrese nombre de la liga";
-             request.getRequestDispatcher("crudLigas.jsp").forward(request, response);
+            doGet(request, response);
         }
         else{
             Liga l = service.findLiga(id);

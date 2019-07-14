@@ -16,10 +16,11 @@
             
             Nombre: <input type="text" name="nombre">
          
-            <button type="submit">Crear</button>
+            <button type="submit" name="boton" value="crear">Crear</button>
         </form>
         ${requestScope.msg}
         
+        <form action ="LigasController" method="POST">
          <table>
                         <thead>
                             <tr>                                                             
@@ -29,16 +30,20 @@
                         </thead>
 
                         <tbody>
+                       
                             <c:forEach items="${requestScope.liga}" var= "l">
                                 <tr>
                                   <td>${l.nombre}</td>
                                   <td>
-                                      <button value="leer" name="boton">Ver</button>
+                                      <button value="leer" name="boton">Ver liga</button>
                                       <button value="eliminar" name="boton">Eliminar</button>
                                   </td>
                                 </tr>
                                 </c:forEach>
+                            
+
                         </tbody>
                     </table>
+            </form>
     </body>
 </html>
